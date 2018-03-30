@@ -59,7 +59,7 @@ When sending ether be aware of the relative tradeoffs between the use of
 Using `send()` or `transfer()` will prevent reentrancy but it does so at the cost of being incompatible with any contract whose fallback function requires more than 2,300 gas. It is also possible to use `someAddress.call.value(ethAmount).gas(gasAmount)()` to forward a custom amount of gas.
 
 One pattern that attempts to balance this trade-off is to implement both
-a [*push* and *pull*](#favor-pull-over-push-payments) mechanism, using `send()` or `transfer()`
+a [*push* and *pull*](#favor-pull-over-push-for-external-calls) mechanism, using `send()` or `transfer()`
 for the *push* component and `call.value()()` for the *pull* component.
 
 It is worth pointing out that exclusive use of `send()` or `transfer()` for value transfers
